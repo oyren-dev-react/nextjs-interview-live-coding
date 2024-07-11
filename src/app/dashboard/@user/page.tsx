@@ -11,8 +11,6 @@ async function getAdminDashBoardCode() {
         cache: 'no-cache',
     });
 
-    console.log("response", response.status)
-
     // Check if the response is OK
     if (!response.ok) {
         throw new Error('Failed to fetch data from third-party API');

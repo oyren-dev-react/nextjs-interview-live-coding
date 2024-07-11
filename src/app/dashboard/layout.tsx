@@ -1,10 +1,19 @@
 import {ReactNode} from "react";
 
-export default function DashboardLayout({children}: { children: ReactNode }) {
+export default async function DashboardLayout({admin, user, finance}: any) {
+    // get user role from the server
+    const userRoleData = await getUserRole()
+
     return (
         <section>
-            {/* Include shared UI here e.g. a header or sidebar */}
-            {children}
+            {userRoleData === "admin" && admin}
+            {userRoleData === "user" && user}
+            {userRoleData === "finance" && finance}
         </section>
     )
+}
+
+type UserRole = "admin" | "user" | "finance"
+async function getUserRole(): Promise<UserRole>{
+    return Promise.resolve("user")
 }

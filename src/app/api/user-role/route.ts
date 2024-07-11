@@ -1,11 +1,11 @@
-// route that returns hardcoded user role like admin, moderator, finance etc
+// route that returns hardcoded @user role like @admin, moderator, @finance etc
 //
-// app/api/user-role/route.ts
+// app/api/@user-role/route.ts
 
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-    // Hard-coded user roles
+    // Hard-coded @user roles
     const roles = ["admin", "finance", "user"];
 
     // Return the roles as a JSON response
