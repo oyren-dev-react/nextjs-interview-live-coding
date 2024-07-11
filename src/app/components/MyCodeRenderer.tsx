@@ -2,24 +2,16 @@
 
 import {CodePreviewBlox} from "@oyren/bloxjs";
 
-export default function MyCodeRenderer() {
-    const files: Record<string, string> = {
-        "App.tsx": `import React from 'react';
 
-const App: React.FC = () => {
-  return (
-    <div className="bg-teal-50 h-screen flex justify-center items-center">
-      <h1 className="text-4xl font-bold text-center text-teal-600">
-        Hello World
-      </h1>
-    </div>
-  );
-};
+export default function MyCodeRenderer({codeAsString}: { codeAsString: string }) {
 
-export default App;
-`
-    };
+    const files = JSON.parse(codeAsString);
+
+
     return (
-        <CodePreviewBlox codes={files}/>
+        <div className={""}>
+
+            <CodePreviewBlox codes={files}/>
+        </div>
     )
 }
