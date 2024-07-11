@@ -1,6 +1,11 @@
 import {ReactNode} from "react";
 
-export default async function DashboardLayout({admin, user, finance}: any) {
+type DashboardLayoutProps = {
+    admin: ReactNode;
+    user: ReactNode;
+    finance: ReactNode;
+};
+export default async function DashboardLayout({admin, user, finance}: DashboardLayoutProps) {
     // get user role from the server
     const userRoleData = await getUserRole()
 
@@ -15,5 +20,5 @@ export default async function DashboardLayout({admin, user, finance}: any) {
 
 type UserRole = "admin" | "user" | "finance"
 async function getUserRole(): Promise<UserRole>{
-    return Promise.resolve("user")
+    return Promise.resolve("finance")
 }
